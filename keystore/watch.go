@@ -64,7 +64,7 @@ func (w *watcher) loop() {
 		w.starting = false
 		w.ac.mu.Unlock()
 	}()
-	logger := log.New("path", w.ac.keydir)
+	logger := log.New("path")
 
 	if err := notify.Watch(w.ac.keydir, w.ev, notify.All); err != nil {
 		logger.Trace("Failed to watch keystore folder", "err", err)
